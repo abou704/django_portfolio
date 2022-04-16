@@ -1,0 +1,50 @@
+{% load static %}
+{% include "header.html" %}
+
+<body class="light">
+<!-- Preloader Start -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<!-- Preloader Ends -->
+<!-- Wrapper Starts -->
+<div class="wrapper">
+    <div id="bl-main" class="bl-main">
+        <!-- Top Left Section Starts -->
+        <section class="topleft">
+            <div class="bl-box row valign-wrapper">
+                <div class="row valign-wrapper">
+                    <div class="title-heading">
+                        <div class="selector uppercase" id="selector">
+                            <h3 class="ah-headline p-none m-none">
+                                <span class="font-weight-300">Hi There ! I'm</span>
+                                <span class="ah-words-wrapper">
+                                        <b class="is-visible">{{ profile.name }}</b>
+                                        <b>a Data Scientist</b>
+                                    </span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Top Left Section Ends -->
+        <!-- About Section Starts -->
+        {% include "about.html" %}
+        <!-- About Ends -->
+        <!-- Portfolio Starts -->
+        {% include "portfolio.html" %}
+        <!-- Portfolio Section Ends -->
+        <!-- Contact Section Starts -->
+        {% include "contact.html" %}
+        <!-- Contact Section Ends -->
+        <!-- Portfolio Panel Items Starts -->
+        {% include "portfolio-panel.html" %}
+        <!-- Portfolio Panel Items Ends -->
+    </div>
+</div>
+<!-- Wrapper Ends -->
+
+{% include "footer.html" %}

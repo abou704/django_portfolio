@@ -1,0 +1,63 @@
+<div class="bl-panel-items" id="bl-panel-work-items">
+    {% for project in projects %}
+    {% if project.status %}
+    <!-- Project Starts -->
+    <div data-panel="panel-{{ project.id }}">
+        <div class="row">
+            <!-- Project Main Content Starts -->
+            <div class="col s12 l6 xl6">
+                <img class="responsive-img" src="/static/images/projects/project-{{ project.id }}.jpg"
+                     alt="{{ project.client_name }}"/>
+            </div>
+            <!-- Project Main Content Ends -->
+            <!-- Project Details Starts -->
+            <div class="col s12 l6 xl6">
+                <h3 class="font-weight-600 white-text uppercase">{{ project.type }}</h3>
+                <ul class="project-details white-text second-font">
+                    <li><i class="fas fa-user"></i><span class="font-weight-600"> Client </span>: <span
+                            class="font-weight-400 uppercase">{{ project.client_name }}</span></li>
+                    <li><i class="fas fa-calendar-alt"></i><span class="font-weight-600"> Date </span>: <span
+                            class="font-weight-400 uppercase">{{ project.date }}</span></li>
+                    {% if project.skills.all %}
+                    <li><i class="fas fa-code"></i> <span class="font-weight-600"> Technologies Used</span>
+                        : <span class="font-weight-400 uppercase">
+                            {% for skill in project.skills.all %}{{ skill.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</span>
+                    </li>
+                    {% endif %}
+                    {% if project.software.all %}
+                    <li><i class="fas fa-cogs"></i> <span class="font-weight-600"> Software Used</span>
+                        : <span class="font-weight-400 uppercase">{% for software in project.software.all %}{{ software.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</span>
+                    </li>
+                    {% endif %}
+                </ul>
+                {% if project.description %}
+                <hr>
+                <p class="white-text second-font">{{ project.description }}</p>
+                {% endif %}
+                {% if project.url %}
+                <a href="{{ project.url }}" class="waves-effect waves-light btn font-weight-500"
+                   target="_blank">Preview <i class="fas fa-external-link-alt"></i></a>
+                {% endif %}
+            </div>
+            <!-- Project Details Ends -->
+        </div>
+    </div>
+    <!-- Project Ends -->
+    {% endif %}
+    {% empty %}
+    <p>Sorry, there are no projects.</p>
+    {% endfor %}
+    <!-- Portfolio Navigation Starts -->
+    <nav>
+        <!-- Previous Work Icon Starts -->
+        <span class="control-button bl-previous-work uppercase font-weight-700"><i class="fas fa-chevron-left"></i></span>
+        <!-- Previous Work Icon Ends -->
+        <!-- Close Work Icon Starts -->
+        <span class="control-button fas fa-times fa-2x bl-icon-close center-align" id="bl-icon-close"></span>
+        <!-- Close Work Icon Ends -->
+        <!-- Next Work Icon Starts -->
+        <span class="control-button bl-next-work uppercase font-weight-700"><i class="fas fa-chevron-right"></i></span>
+        <!-- Previous Work Icon Ends -->
+    </nav>
+    <!-- Portfolio Navigation Ends -->
+</div>

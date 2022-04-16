@@ -1,0 +1,55 @@
+<section id="bl-work-section">
+    <!-- Portfolio Title Starts -->
+    <div class="bl-box valign-wrapper">
+        <div class="page-title center-align">
+            <span class="title-bg">work</span>
+            <h2 class="center-align">
+                <span data-hover="my">my </span>
+                <span data-hover="portfolio">portfolio</span>
+            </h2>
+        </div>
+    </div>
+    <!-- Portfolio Title Ends -->
+    <!-- Portfolio Expanded Starts -->
+    <div class="bl-content">
+        <!-- Main Heading Starts -->
+        <div class="container page-title center-align">
+            <h2 class="center-align">
+                <span data-hover="my">my </span>
+                <span data-hover="portfolio">portfolio</span>
+            </h2>
+            <span class="title-bg">work</span>
+        </div>
+        <!-- Main Heading Ends -->
+        <div class="container">
+            <!-- Divider Starts -->
+            <div class="divider center-align">
+                <span class="outer-line"></span>
+                <span class="fas fa-suitcase" aria-hidden="true"></span>
+                <span class="outer-line"></span>
+            </div>
+            <!-- Divider Ends -->
+            <div class="row center-align da-thumbs" id="bl-work-items">
+                {% for project in projects %}
+                {% if project.status %}
+                <!-- Project Starts -->
+                <div class="col s12 m6 l3 xl3" data-panel="panel-{{ project.id }}">
+                    <a href="#">
+                        <img class="responsive-img" src="/static/images/projects/project-{{ project.id }}.jpg"
+                             alt="{{ project.client_name }}"/>
+                        <div class="valign-wrapper"><span
+                                class="font-weight-400 uppercase">{{ project.client_name }}<br />{{ project.type }}</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Project Ends -->
+                {% endif %}
+                {% empty %}
+                <p>Sorry, there are no projects.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio Expanded Ends -->
+    <img alt="close" src="/static/images/close-button.png" class="bl-icon-close"/>
+</section>

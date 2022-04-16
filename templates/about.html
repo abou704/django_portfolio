@@ -1,0 +1,237 @@
+{% load columns %}
+<section>
+    <!-- About Title Starts -->
+    <div class="bl-box valign-wrapper">
+        <div class="page-title center-align">
+            <span class="title-bg">Resume</span>
+            <h2 class="center-align">
+                <span data-hover="About">About </span>
+                <span data-hover="Me">Me</span>
+            </h2>
+        </div>
+    </div>
+    <!-- About Title Ends -->
+    <!-- About Expanded Starts -->
+    <div class="bl-content">
+        <!-- Main Heading Starts -->
+        <div class="container page-title center-align">
+            <h2 class="center-align">
+                <span data-hover="About">About </span>
+                <span data-hover="Me">Me</span>
+            </h2>
+            <span class="title-bg">Resume</span>
+        </div>
+        <!-- Main Heading Ends -->
+        <div class="container infos">
+            <!-- Divider Starts -->
+            <div class="divider center-align">
+                <span class="outer-line"></span>
+                <span class="fas fa-address-card" aria-hidden="true"></span>
+                <span class="outer-line"></span>
+            </div>
+            <!-- Divider Ends -->
+            <!-- Personal Informations Starts -->
+            <div class="row">
+                <!-- Picture Starts -->
+                 <div class="col s12 m5 l4 xl3 profile-picture">
+                    <img src="/static/images/about/profile/DIAW.jpg" class="responsive-img my-picture"
+                         alt="My Photo">
+                </div>
+                 <!-- Picture Ends -->
+                <div class="col s12 m7 l8 xl9 personal-info">
+                    <h6 class="uppercase"><i class="fa fa-user"></i> Personal Information</h6>
+                    <div class="col m12 l7 xl7 p-none">
+                        <p class="second-font">Hello there, my name is Aboubakiri; I live in Casablanca and I am a Data scientist and Web Developer.</p>
+                    </div>
+                    <div class="col s12 m12 l6 p-none">
+                        <ul class="second-font list-1">
+                            <li><span class="font-weight-600">Name: </span>{{ profile.name }}</li>
+                            <li><span class="font-weight-600">Date of birth: </span>30th July 1996</li>
+                            <li><span class="font-weight-600">Nationality: </span>{{ profile.nationality }}</li>
+                            <li><span class="font-weight-600">Spoken Langages: </span>{{ profile.spoken_lang }}</li>
+                        </ul>
+                    </div>
+                    <div class="col s12 m12 l6 p-none">
+                        <ul class="second-font list-2">
+                            <li><span class="font-weight-600">Phone: </span>{{ profile.phone }}</li>
+                            <li><span class="font-weight-600">Address: </span>{{ profile.town }}</li>
+                            <li><span class="font-weight-600">Email: </span>{{ profile.email }}</li>
+                            <li><span class="font-weight-600">Skype: </span>{{ profile.skype }}</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="col s12 m12 l4 xl4 waves-effect waves-light btn font-weight-500">
+                        Download Resume <i class="far fa-file-pdf"></i>
+                    </a>
+                    <!--<a href="#" class="col s12 m12 l4 xl4 btn btn-blog font-weight-500">
+                        My Blog <i class="fas fa-edit"></i>
+                    </a>-->
+                </div>
+            </div>
+            <!-- Personal Informations Ends -->
+        </div>
+        <!-- Resume Starts -->
+        <div class="resume-container">
+            <div class="container">
+                <div class="valign-wrapper row">
+                    <!-- Resume Menu Starts -->
+                    <div class="resume-list col l4">
+                        <div class="resume-list-item is-active" data-index="0" id="resume-list-item-0">
+                            <div class="resume-list-item-inner">
+                                <h6 class="resume-list-item-title uppercase"><i class="fa fa-briefcase"></i>
+                                    Experience</h6>
+                            </div>
+                        </div>
+                        <div class="resume-list-item" data-index="1" id="resume-list-item-1">
+                            <div class="resume-list-item-inner">
+                                <h6 class="resume-list-item-title uppercase"><i
+                                        class="fa fa-graduation-cap"></i>
+                                    Education</h6>
+                            </div>
+                        </div>
+                        <div class="resume-list-item" data-index="2" id="resume-list-item-2">
+                            <div class="resume-list-item-inner">
+                                <h6 class="resume-list-item-title uppercase"><i class="fa fa-star"></i>
+                                    Skills</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Resume Menu Ends -->
+                    <!-- Resume Content Starts -->
+                    <div class="col s12 m12 l8 resume-cards-container">
+                        <div class="resume-cards">
+                            <!-- Experience Starts -->
+                            <div class="resume-card resume-card-0" data-index="0">
+                                <!-- Experience Header Title Starts -->
+                                <div class="resume-card-header">
+                                    <div class="resume-card-name"><i class="fa fa-briefcase"></i>
+                                        Experience
+                                    </div>
+                                </div>
+                                <!-- Experience Header Title Ends -->
+                                <!-- Experience Content Starts -->
+                                <div class="resume-card-body experience">
+                                    <div class="resume-card-body-container second-font">
+                                        {% for employment in employments %}
+                                        <!-- Single Experience Starts -->
+                                        <div class="resume-content">
+                                            <h6><span>{{ employment.name }} - </span>{{ employment.position }}
+                                            </h6>
+                                            <span class="date"><i
+                                                    class="fa fa-calendar-o"></i> {{ employment.time_period }}</span>
+                                            <p>{{ employment.description }}</p>
+                                        </div>
+                                        <!-- Single Experience Ends -->
+                                        {% if not forloop.last %}<span class="separator"></span>{% endif %}
+                                        {% empty %}
+                                        <p>There are no Employments</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <!-- Experience Content Starts -->
+                            </div>
+                            <!-- Experience Ends -->
+                            <!-- Education Starts -->
+                            <div class="resume-card resume-card-1" data-index="1">
+                                <!-- Education Header Title Starts -->
+                                <div class="resume-card-header">
+                                    <div class="resume-card-name"><i class="fa fa-graduation-cap"></i>
+                                        Education
+                                    </div>
+                                </div>
+                                <!-- Education Header Title Starts -->
+                                <div class="resume-card-body education">
+                                    <div class="resume-card-body-container second-font">
+                                        {% for education in educations %}
+                                        <!-- Single Education Starts -->
+                                        <div class="resume-content">
+                                            <h6><span>{{ education.name }} - </span>{{ education.level }}</h6>
+                                            <span class="date"><i
+                                                    class="fa fa-calendar-o"></i> {{ education.time_period }}</span>
+                                            <p>{{ education.description }}</p>
+                                        </div>
+                                        <!-- Single Education Ends -->
+                                        {% if not forloop.last %}<span class="separator"></span>{% endif %}
+                                        {% empty %}
+                                        <p>There are no educations</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Education Ends -->
+                            <!-- Skills Starts -->
+                            <div class="resume-card resume-card-2" data-index="2">
+                                <!-- Skills Header Title Starts -->
+                                <div class="resume-card-header">
+                                    <div class="resume-card-name"><i class="fa fa-star"></i> Skills</div>
+                                </div>
+                                <!-- Skills Header Title Starts -->
+                                <div class="resume-card-body skills">
+                                    <div class="resume-card-body-container second-font">
+                                        <div class="row">
+                                            <!-- Skills Row Starts -->
+                                            {% if skills %}
+                                            {% for skill in skills|columns:2 %}
+                                            <div class="col s6">
+                                                {% for skill in skill %}
+                                                <!-- Single Skills Starts -->
+                                                <div class="resume-content">
+                                                    <h6 class="uppercase">{{ skill.name }}</h6>
+                                                    <p>{% for i in "x"|ljust:skill.rating %}<i class="fa fa-star"></i>{% endfor %}</p>
+                                                </div>
+                                                {% endfor %}
+                                                <!-- Single Skills Ends -->
+                                            </div>
+                                            {% endfor %}
+                                            {% else %}
+                                            <p>There are no skills</p>
+                                            {% endif %}
+                                            <!-- Skills Row Ends -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Skills Ends -->
+                        </div>
+                    </div>
+                    <!-- Resume Content Ends -->
+                </div>
+            </div>
+        </div>
+        <!-- Resume Ends -->
+        <!-- Fun Facts Starts -->
+        <div class="container badges">
+            <div class="row">
+                <!-- Fact Badge Item Starts -->
+                <div class="col s12 m4 l4 center-align">
+                    <h3>
+                        <i class="fa fa-keyboard"></i>
+                        <span class="font-weight-700">100</span>
+                    </h3>
+                    <h6 class="uppercase font-weight-500">Words Per Minute</h6>
+                </div>
+                <!-- Fact Badge Item Ends -->
+                <!-- Fact Badge Item Starts -->
+                <div class="col s12 m4 l4 center-align">
+                    <h3>
+                        <i class="fa fa-check-square"></i>
+                        <span class="font-weight-700">{{ projects.count }}</span>
+                    </h3>
+                    <h6 class="uppercase font-weight-500">Completed Projects</h6>
+                </div>
+                <!-- Fact Badge Item Ends -->
+                <!-- Fact Badge Item Starts -->
+                <div class="col s12 m4 l4 center-align">
+                    <h3>
+                        <i class="fa fa-heart"></i>
+                        <span class="font-weight-700">{{ clients.count }}</span>
+                    </h3>
+                    <h6 class="uppercase font-weight-500">Happy customers</h6>
+                </div>
+                <!-- Fact Badge Item Ends -->
+            </div>
+        </div>
+        <!-- Fun Facts Ends -->
+    </div>
+    <!-- End Expanded About -->
+    <img alt="close" src="/static/images/close-button.png" class="bl-icon-close"/>
+</section>

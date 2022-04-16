@@ -1,0 +1,7 @@
+django
+gunicorn
+django-heroku
+django-columns
+whitenoise
+Pillow
+singlemodeladmin
