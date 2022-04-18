@@ -1,7 +1,11 @@
 from django.db import models
+from django.utils import timezone
+from aboubakiri.aboubakiri_model import AboubakiriModelManager, AboubakiriModel
 
 
-class Skill(models.Model):
+
+class Skill(AboubakiriModel):
+    date = models.DateTimeField(default=timezone.now)
     name = models.CharField(
         max_length=255,
         verbose_name="Skill Name",
@@ -11,6 +15,7 @@ class Skill(models.Model):
         verbose_name="Rating",
         default=0
     )
+    objects = AboubakiriModelManager()
 
     def __str__(self):
         return self.name
@@ -19,7 +24,7 @@ class Skill(models.Model):
         ordering = ('-rating',)
 
 
-class Software(models.Model):
+class Software(AboubakiriModel):
     name = models.CharField(
         max_length=255,
         verbose_name="Software Name",
@@ -30,6 +35,8 @@ class Software(models.Model):
         default=0
     )
 
+    objects = AboubakiriModelManager()
+    
     def __str__(self):
         return self.name
 

@@ -1,7 +1,9 @@
 from django.db import models
+from aboubakiri.aboubakiri_model import AboubakiriModelManager, AboubakiriModel
+from django.utils import timezone
 
-
-class Employment(models.Model):
+class Employment(AboubakiriModel):
+    date = models.DateTimeField(default=timezone.now)
     name = models.CharField(
         max_length=255,
         verbose_name="Company Name",
@@ -31,12 +33,14 @@ class Employment(models.Model):
         verbose_name="URL",
         blank=True
     )
+    objects = AboubakiriModelManager()
 
     def __str__(self):
         return self.name
 
 
-class Education(models.Model):
+class Education(AboubakiriModel):
+    date = models.DateTimeField(default=timezone.now)
     name = models.CharField(
         max_length=255,
         verbose_name="School Name",
@@ -66,6 +70,8 @@ class Education(models.Model):
         verbose_name="URL",
         blank=True
     )
+
+    objects = AboubakiriModelManager()
 
     def __str__(self):
         return self.name
