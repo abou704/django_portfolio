@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'n(4d+&uwk*azuuf*rre+@j^l0ec%6!*b17ljvo#ohf_soy$4+v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'aboubakiri-portfolio.herokuapp.com']
 
@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'portfolio',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': '172.23.48.1',
+        'HOST': '172.29.16.1',
         'PORT': '5432',
     }
 }
@@ -146,7 +146,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+#USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
